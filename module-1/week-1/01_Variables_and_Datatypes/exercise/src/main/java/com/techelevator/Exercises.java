@@ -426,7 +426,9 @@ public class Exercises {
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
-		
+		double croissantsBaked = 17.0;
+		double cristinaGuests = 7.0;
+		double croissantsServed = (double)(croissantsBaked/cristinaGuests);
 
 	    /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
@@ -434,7 +436,9 @@ public class Exercises {
 	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates, 
 	    and then divide the total number of rooms to be painted by the combined rate.
 	    */
-     
+     	double billRate = (double)(5/2.15);
+		double jillRate = (double)(5/1.90);
+		double ratesCombined = (billRate + jillRate);
 
 	    /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
@@ -443,12 +447,19 @@ public class Exercises {
 		with a period. Use "Grace", "Hopper, and "B" for the first name, last name, and middle initial.
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
-
+		String firstName = "Grace";
+		String lastName = "Hopper";
+		String middle = "B.";
+		String fullName = lastName + ", " + firstName + " " + middle;
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
+		int distTotal = 800;
+		int distTraveled = 537;
+		double percentage = (double)(distTraveled/distTotal);
+		double percentageTotal = percentage * 100;
 
 	}
 
