@@ -26,7 +26,10 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3) ➔ 269.97
      */
     public double calculateStayTotal(int numberOfNights) {
-        return 0.0;
+        if(numberOfNights > 2) {
+            return (numberOfNights * DISCOUNT_RATE);
+        }
+        return (numberOfNights*DAILY_RATE);
     }
 
     /*
@@ -41,7 +44,15 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, true) ➔ 344.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking) {
-        return 0.0;
+        if(numOfTotalNights > 2 && includesParking == true) {
+            return ((numOfTotalNights * DISCOUNT_RATE)+ (PARKING_RATE*numOfTotalNights));
+        } else if(numOfTotalNights > 2 && includesParking == false) {
+            return (numOfTotalNights * DISCOUNT_RATE);
+        } else if(numOfTotalNights <=2 && includesParking == true){
+            return ((numOfTotalNights * DAILY_RATE)+(PARKING_RATE*numOfTotalNights));
+        } else {
+            return (numOfTotalNights*DAILY_RATE);
+        }
     }
 
     /*
@@ -61,6 +72,23 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, true, true) ➔ 364.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking, boolean includesLateCheckout) {
-        return 0.0;
+        // more than 3 days
+        if(numOfTotalNights > 2 && includesParking == true && includesLateCheckout==true) {
+            return ((numOfTotalNights * DISCOUNT_RATE)+ (PARKING_RATE*numOfTotalNights)+LATE_CHECKOUT_FEE);
+        } else if(numOfTotalNights > 2 && includesParking == false && includesLateCheckout ==true) {
+            return ((numOfTotalNights * DISCOUNT_RATE)+LATE_CHECKOUT_FEE);
+        } else if(numOfTotalNights > 2 && includesParking == true && includesLateCheckout ==false) {
+            return ((numOfTotalNights * DISCOUNT_RATE)+(PARKING_RATE*numOfTotalNights));
+        } else if(numOfTotalNights > 2 && includesParking == false && includesLateCheckout ==false) {
+            return (numOfTotalNights * DISCOUNT_RATE);//Start of 2 days or less
+        } else if(numOfTotalNights <=2 && includesParking == true && includesLateCheckout ==true){
+            return ((numOfTotalNights * DAILY_RATE)+(PARKING_RATE*numOfTotalNights)+LATE_CHECKOUT_FEE);
+        } else if(numOfTotalNights <=2 && includesParking == false && includesLateCheckout ==true){
+            return ((numOfTotalNights * DAILY_RATE)+LATE_CHECKOUT_FEE);
+        } else if(numOfTotalNights <=2 && includesParking == true && includesLateCheckout ==false){
+            return ((numOfTotalNights * DAILY_RATE)+(PARKING_RATE*numOfTotalNights));
+        } else {
+            return (numOfTotalNights*DAILY_RATE);
+        }
     }
 }

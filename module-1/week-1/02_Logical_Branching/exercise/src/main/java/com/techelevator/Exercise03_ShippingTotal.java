@@ -25,7 +25,10 @@ public class Exercise03_ShippingTotal {
      * calculateShippingRate(45) ➔ 0.75
      */
     public double calculateShippingRate(int weightPounds) {
-        return 0.0;
+        if (weightPounds <= MAX_WEIGHT_POUNDS) {
+            return UP_TO_40_LB_RATE;
+        }
+        return OVER_40_LB_RATE;
     }
 
     /*
@@ -43,9 +46,12 @@ public class Exercise03_ShippingTotal {
      * calculateShippingTotal(45) ➔ 33.75
      */
     public double calculateShippingTotal(int weightPounds) {
-        return 0.0;
+        if (weightPounds <= MAX_WEIGHT_POUNDS) {
+            return (weightPounds * UP_TO_40_LB_RATE);
+        } else {
+            return (weightPounds * OVER_40_LB_RATE);
+        }
     }
-
     /*
      * Scamper Shipping Company now allows customers to provide a discount code to
      * give them 10% off of their order.
@@ -65,7 +71,18 @@ public class Exercise03_ShippingTotal {
      * calculateShippingTotal(45, true) ➔ 30.375
      */
     public double calculateShippingTotal(int weightPounds, boolean hasDiscount) {
-        return 0.0;
+        double coupon = (double)0.10;
+        if (weightPounds <= MAX_WEIGHT_POUNDS) {
+            if (hasDiscount == true) {
+                return ((double)((weightPounds * UP_TO_40_LB_RATE) * coupon));
+            }
+            return ((double)(weightPounds * UP_TO_40_LB_RATE));
+        } else {
+            if (hasDiscount == true) {
+                return ((double)((weightPounds * OVER_40_LB_RATE) * coupon));
+            }
+            return ((double)(weightPounds * OVER_40_LB_RATE));
+        }
     }
 
 }
