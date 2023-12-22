@@ -84,6 +84,15 @@ public class HelloWorld {
         sayGreeting(name, 12.30);
         sayGreeting("Raina", 9.15);
         sayGreeting("Bobby", 8.05);
+
+
+        int answer = 0;
+        for(int i = 0; i < 10; i++) {
+            if(i % 2 == 0) {
+                answer = answer + i;
+            }
+        }
+        System.out.println(answer);
     }
 
     static void sayGreeting(String nameOfPersonToGreet, double timeOfDay){
