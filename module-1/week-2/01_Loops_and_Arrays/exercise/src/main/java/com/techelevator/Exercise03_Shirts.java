@@ -17,7 +17,14 @@ public class Exercise03_Shirts {
     buildOrder() → ['S', 'S', 'S', 'M', 'M', 'L']
      */
     public char[] buildOrder() {
-        return new char[] {};    
+        char[] order = new char[6];
+        order [0] = 'S';
+        order [1] = 'S';
+        order [2] = 'S';
+        order [3] = 'M';
+        order [4] = 'M';
+        order [5] = 'L';
+        return order;
     }
 
     /*
@@ -36,7 +43,11 @@ public class Exercise03_Shirts {
     buildBulkOrder(4) → ['S', 'M', 'L', 'S']
     buildBulkOrder(0) → []
      */
-    public char[] buildBulkOrder(int numberOfShirts) { 
+    public char[] buildBulkOrder(int numberOfShirts) {
+        char[] bulkOrder = new char[numberOfShirts];
+        for(int i = 0; i < numberOfShirts; i++){
+            if()
+        }
         return new char[] {};    
     }
 
