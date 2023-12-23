@@ -73,24 +73,15 @@ public class Exercise02_BoardingGate {
     getNumberOfFullRows([OCCUPIED, AVAILABLE, AVAILABLE, OCCUPIED, AVAILABLE, AVAILABLE]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
-        int occupiedFullLeft = 0;
-        int occupiedFullRight = 0;
-        int occupiedFull = 0;
-        for(int i = 0; i < 3; i++){
-            if(seatingChart[i] == OCCUPIED){
-                occupiedFullLeft++;
-            }
-        }
-        for(int i = 3; i < 6; i++){
-            if(seatingChart[i] == OCCUPIED){
-                occupiedFullRight++;
-            }
-        }
-        occupiedFullLeft = occupiedFullLeft /3;
-        occupiedFullRight = occupiedFullRight /3;
-        occupiedFull = occupiedFullLeft + occupiedFullRight;
+        int fullRows = 0;
 
-        return occupiedFull % 3;
+        for (int i = 0; i < seatingChart.length; i += 3) {
+            if (i + 2 < seatingChart.length && seatingChart[i] == OCCUPIED && seatingChart[i + 1] == OCCUPIED && seatingChart[i + 2] == OCCUPIED) {
+                fullRows++;
+            }
+        }
+
+        return fullRows;
     }
 
 }
