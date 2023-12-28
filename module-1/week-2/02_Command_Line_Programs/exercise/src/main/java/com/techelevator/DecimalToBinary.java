@@ -9,14 +9,22 @@ public class DecimalToBinary {
 
 		System.out.print("Please enter in a series of decimal values (separated by spaces): ");
 		String value = input.nextLine();
-		int decimal = Integer.parseInt(value);
+		String[] set = value.split(" ");
+		int[] setNumbers = new int[set.length];
 
-		int remain = 0;
+		for(int i = 0; i < setNumbers.length; i++){
+			setNumbers[i] = Integer.parseInt(set[i]);
 
-		for(int i = 0; i<10; i++){
-			int valueNew;
-			valueNew = decimal / 2;
-			if(decimal%2 == remain)
+			int remain = 0;
+			int valueNew = setNumbers[i] / 2;
+			String binaryString = String.valueOf(setNumbers[i] % 2);
+
+			while(valueNew > 0){
+				remain = valueNew % 2;
+				valueNew = valueNew / 2;
+				binaryString = String.valueOf(remain) + binaryString;
+			}
+			System.out.println(setNumbers[i] + " in binary is " + binaryString);
 		}
 
 
