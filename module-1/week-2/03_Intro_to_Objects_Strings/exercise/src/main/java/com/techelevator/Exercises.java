@@ -361,7 +361,11 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		String result = "";
+		for (int i = 0; i < str.length(); i += 2) {
+			result += str.charAt(i);
+		}
+		return result;
 	}
 
 	/*
@@ -371,7 +375,12 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		int strlength = str.length();
+		String splosion = "";
+		for(int i = 0; i<strlength; i++){
+			splosion = str.substring(0,strlength-i) + splosion;
+		}
+		return splosion;
 	}
 
 	/*
@@ -388,7 +397,19 @@ public class Exercises {
 	 last2("xxxx") -> 2
 	 */
 	public int last2(String str) {
-		return 0;
+		if (str.length() <2){
+			return 0;
+		}
+		int strLength = str.length();
+		String lastTwo = str.substring(strLength-2);
+
+		int cnt = 0;
+		for(int i = 0; i < str.length()-2; i++){
+			if (str.substring(i, i+2).equals(lastTwo)){
+				cnt++;
+			}
+		}
+		return cnt;
 	}
 
 	/*
@@ -399,7 +420,19 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		if(str.length() ==1){
+			if(str.contains("x")){
+				return "x";
+			}
+		}
+		if(str.startsWith("x") || str.endsWith("x")){
+			String[] seperateString = str.split("x");
+			String togetherString = str.join("",seperateString);
+			String lastString = "x" + togetherString + "x";
+			return lastString;
+		} String[] seperateString = str.split("x");
+		String togetherString = str.join("",seperateString);
+		return togetherString;
 	}
 
 	/*
@@ -409,7 +442,12 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String pairs = "";
+
+		for(int i = 0; i<str.length(); i+=4){
+			pairs += str.substring(i,i+2);
+		}
+		return pairs;
 	}
 
 	/*
@@ -420,7 +458,9 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		String[] noYak = str.split("yak");
+		String yakGone = String.join("",noYak);
+		return yakGone;
 	}
 
 }
