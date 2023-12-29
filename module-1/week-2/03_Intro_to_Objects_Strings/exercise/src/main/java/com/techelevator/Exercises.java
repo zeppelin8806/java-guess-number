@@ -9,7 +9,7 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		return "Hello " + name + "!";
 	}
 
 	/*
@@ -20,7 +20,8 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+		String abba = a +b + b+a;
+		return abba;
 	}
 
 	/*
@@ -32,7 +33,8 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return null;
+		String html = "<" + tag + ">" + word + "</" + tag + ">";
+		return html;
 	}
 
 	/*
@@ -44,7 +46,9 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		String symbol = out.substring(0,2);
+		String endSymbol = out.substring(2);
+		return symbol + word + endSymbol;
 	}
 
 	/*
@@ -55,7 +59,9 @@ public class Exercises {
 	 extraEnd("Hi") → "HiHiHi"
 	 */
 	public String extraEnd(String str) {
-		return null;
+		int lengthOfString = str.length();
+		String lastTwo = str.substring(lengthOfString - 2);
+		return lastTwo + lastTwo + lastTwo;
 	}
 
 	/*
@@ -67,7 +73,14 @@ public class Exercises {
 	 firstTwo("ab") → "ab"
 	 */
 	public String firstTwo(String str) {
-		return null;
+		int length = str.length();
+		if (length < 2) {
+			String firstOne = str.substring(0);
+			return firstOne + "";
+		} else {
+			String firstTwo = str.substring(0, 2);
+			return firstTwo;
+		}
 	}
 
 	/*
@@ -77,7 +90,9 @@ public class Exercises {
 	 firstHalf("abcdef") → "abc"
 	 */
 	public String firstHalf(String str) {
-		return null;
+		int stringLength = str.length();
+		String halfFirst = str.substring(0,stringLength/2);
+		return halfFirst;
 	}
 
 	/*
@@ -88,7 +103,9 @@ public class Exercises {
 	 withoutEnd("coding") → "odin"
 	 */
 	public String withoutEnd(String str) {
-		return null;
+		int stringLength = str.length();
+		String middle = str.substring(1,stringLength-1);
+		return middle;
 	}
 
 	/*
