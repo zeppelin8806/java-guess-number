@@ -117,7 +117,12 @@ public class Exercises {
 	 comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		int lenghtA = a.length();
+		int lengthB = b.length();
+		if(lenghtA > lengthB){
+			return b+a+b;
+		}
+		return a+b+a;
 	}
 
 	/*
@@ -128,7 +133,10 @@ public class Exercises {
 	 nonStart("shotl", "java") → "hotlava"
 	 */
 	public String nonStart(String a, String b) {
-		return null;
+		String aNew = a.substring(1);
+		String bNew = b.substring(1);
+
+		return aNew + bNew;
 	}
 
 	/*
@@ -139,7 +147,10 @@ public class Exercises {
 	 left2("Hi") → "Hi"
 	 */
 	public String left2(String str) {
-		return null;
+		String firstTwo = str.substring(0,2);
+		String endLeft = str.substring(2);
+
+		return endLeft+firstTwo;
 	}
 
 	/*
@@ -150,7 +161,10 @@ public class Exercises {
 	 right2("Hi") → "Hi"
 	 */
 	public String right2(String str) {
-		return null;
+		int strlength = str.length();
+		String lastTwo = str.substring(strlength-2);
+		String restMinusTwo = str.substring(0,strlength-2);
+		return lastTwo + restMinusTwo;
 	}
 
 	/*
@@ -161,7 +175,11 @@ public class Exercises {
 	 theEnd("oh", true) → "o"
 	 */
 	public String theEnd(String str, boolean front) {
-		return null;
+		int strLength = str.length();
+		if(front){
+			return str.substring(0,1);
+		}
+		return str.substring(strLength-1);
 	}
 
 	/*
@@ -172,7 +190,12 @@ public class Exercises {
 	 withoutEnd2("ab") → ""
 	 */
 	public String withoutEnd2(String str) {
-		return null;
+		int strLength = str.length();
+		if(strLength<=2){
+			return "";
+		}
+		String middle = str.substring(1,strLength-1);
+		return middle;
 	}
 
 	/*
@@ -183,7 +206,10 @@ public class Exercises {
 	 middleTwo("Practice") → "ct"
 	 */
 	public String middleTwo(String str) {
-		return null;
+		int strLength = str.length();
+		int lastHalf = strLength/2;
+		String midTwo = str.substring(lastHalf-1, strLength-(lastHalf-1));
+		return midTwo;
 	}
 
 	/*
@@ -193,6 +219,14 @@ public class Exercises {
 	 endsLy("oddy") → false
 	 */
 	public boolean endsLy(String str) {
+		int strLength = str.length();
+		if(strLength<2){
+			return false;
+		}
+		String lastTwo = str.substring(strLength-2,strLength);
+		if (lastTwo.equals("ly")){
+			return true;
+		}
 		return false;
 	}
 
@@ -204,7 +238,10 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		return null;
+		int strLength = str.length();
+		String strNewFirst = str.substring(0,n);
+		String strNewLast = str.substring(strLength-n);
+		return strNewFirst+strNewLast;
 	}
 
 	/*
@@ -216,7 +253,12 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int n) {
-		return null;
+		int strLength = str.length();
+		if ((n+2)>strLength || n<0){
+			return str.substring(0,2);
+		}
+		String charTwo = str.substring(n,n+2);
+		return charTwo;
 	}
 
 	/*
@@ -227,7 +269,10 @@ public class Exercises {
 	 middleThree("solving") → "lvi"
 	 */
 	public String middleThree(String str) {
-		return null;
+		int strLength = str.length();
+		int lengthHalf = strLength/2;
+		String middle = str.substring(lengthHalf-1,lengthHalf+2);
+		return middle;
 	}
 
 	/*
@@ -239,6 +284,10 @@ public class Exercises {
 	 hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
+		int badIndex = str.indexOf("bad");
+		if(badIndex <= 1 && badIndex >= 0){
+			return true;
+		}
 		return false;
 	}
 
@@ -249,7 +298,13 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+		String[] strNew;
+		strNew = new String[n];
+		for(int i = 0; i<n;i++){
+			strNew[i] = str;
+		}
+		String finalString = String.join("",strNew);
+		return finalString;
 	}
 
 	/*
@@ -260,7 +315,12 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+		int strLength = str.length();
+		if(strLength<=2){
+			return stringTimes(str, n);
+		}
+		String firstThree = str.substring(0,3);
+		return stringTimes(firstThree,n);
 	}
 
 	/*
@@ -270,7 +330,13 @@ public class Exercises {
 	 countXX("xxxx") → 3
 	 */
 	public int countXX(String str) {
-		return 0;
+		int cnt = 0;
+		for(int i = 0; i < str.length()-1; i++){
+			if (str.substring(i, i+2).equals("xx")){
+				cnt++;
+			}
+		}
+		return cnt;
 	}
 
 	/*
@@ -280,6 +346,11 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
+		int firstX = str.indexOf("x");
+		int strlength = str.length();
+		if(strlength>=firstX+2 && str.substring(firstX+1,firstX+2).contains("x")){
+			return true;
+		}
 		return false;
 	}
 
