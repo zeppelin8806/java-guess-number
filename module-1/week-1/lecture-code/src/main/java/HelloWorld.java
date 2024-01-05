@@ -93,16 +93,52 @@ public class HelloWorld {
             }
         }
         System.out.println(answer);
+
     }
+
 
     static void sayGreeting(String nameOfPersonToGreet, double timeOfDay){
         System.out.println("Hello " + nameOfPersonToGreet);
         System.out.println("It's really nice to meet you");
         System.out.println("How're you");
 
+
         // Need this line if return type is 'int'
         //return 0;
 
         // Void methods do not need a return type
     }
+    public int sumOddsBetweenValues(int start, int end){
+        int diff = end - start;
+        if(diff == 0){
+            return 0;
+        }
+        int[] arr = new int[diff+1];
+        arr[0] = start;
+        arr[arr.length-1] = end;
+        int n = arr[0];
+        for (int i = 1; i <arr.length; i++){
+            arr[i] = (start +1);
+            if(arr[i]%2==1){
+                n = n+arr[i];
+            }
+        }
+        return n;
+    }
+    public int blackjack(int a, int b){
+        int blackjack = 21;
+
+        if(a == blackjack){
+            return a;
+        } else if (b == blackjack){
+            return b;
+        } else if (b > 21 && a < 21){
+            return a;
+        } else if (a > 21 && b < 21){
+            return b;
+        } return 0;
+    }
+    (blackjack(19,20));
+
+
 }
