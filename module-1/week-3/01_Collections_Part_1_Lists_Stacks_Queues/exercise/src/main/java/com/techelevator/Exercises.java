@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Exercises {
@@ -16,7 +17,9 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> fruit = new ArrayList<String>(Arrays.asList(stringArray));
+
+		return fruit;
 	}
 
 	/*
@@ -26,7 +29,11 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] arrList = new String[stringList.size()];
+		for (int i = 0; i < stringList.size(); i++) {
+			arrList[i] = stringList.get(i);
+		}
+		return arrList;
 	}
 
 	/*
@@ -37,7 +44,14 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> noFour = new ArrayList<String>(Arrays.asList(stringArray));
+		List<String> result = new ArrayList<String>();
+		for(String four : noFour) {
+			if(four.length() != 4){
+				result.add(four);
+			}
+		}
+		return result;
 	}
 
 	/*
@@ -47,7 +61,12 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> dividedByTwo = new ArrayList<Double>();
+		for (int i = 0; i <intArray.length; i++) {
+			double two = ((double)intArray[i]) /2;
+			dividedByTwo.add(two);
+		}
+		return dividedByTwo;
 	}
 
 	/*

@@ -137,8 +137,9 @@ public class HelloWorld {
         } else if (a > 21 && b < 21){
             return b;
         } return 0;
+
     }
-    (blackjack(19,20));
+    blackjack(19,20);
 
 
 }
