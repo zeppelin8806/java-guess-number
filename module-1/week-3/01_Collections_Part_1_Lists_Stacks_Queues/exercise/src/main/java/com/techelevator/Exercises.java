@@ -76,7 +76,13 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		int high = 0;
+		for(int i : integerList){
+			if(i > high){
+				high = i;
+			}
+		}
+		return high;
 	}
 
 	/*
@@ -86,7 +92,14 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> allOdd = new ArrayList<Integer>();
+		for (int i = 0; i <integerArray.length; i++) {
+			if(integerArray[i]%2 != 0){
+				allOdd.add(integerArray[i]);
+			}
+
+		}
+		return allOdd;
 	}
 
 	/*
@@ -97,6 +110,15 @@ public class Exercises {
 	 foundIntTwice( [9, 9, 44, 2, 88, 9], 9) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		int number = 0;
+		for(int i : integerList){
+			if(i == intToFind){
+				number++;
+			}
+		}
+		if(number >= 2){
+			return true;
+		}
 		return false;
 	}
 
