@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Exercises {
@@ -34,7 +35,28 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		if(animalName == null){
+			return "unknown";
+		}
+
+		Map<String, String> animalGroup = new HashMap<>();
+		animalGroup.put("elephant", "Herd");
+		animalGroup.put("rhino", "Crash");
+		animalGroup.put("giraffe", "Tower");
+		animalGroup.put("lion", "Pride");
+		animalGroup.put("crow", "Murder");
+		animalGroup.put("pigeon", "Kit");
+		animalGroup.put("flamingo", "Pat");
+		animalGroup.put("deer", "Herd");
+		animalGroup.put("crocodile", "Float");
+
+		String lowerCase = animalName.toLowerCase();
+		if (animalGroup.containsKey(lowerCase)) {
+			return animalGroup.get(lowerCase);
+		} else {
+			return "unknown";
+		}
+
 	}
 
 	/*
@@ -60,7 +82,22 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		if(itemNumber == null || itemNumber == ""){
+			return 0.00;
+		}
+		Map<String, Double> sku = new HashMap<>();
+		sku.put("KITCHEN4001", 0.20);
+		sku.put("GARAGE1070", 0.15);
+		sku.put("LIVINGROOM", 0.1);
+		sku.put("KITCHEN6073", 0.4);
+		sku.put("BEDROOM3434", 0.6);
+		sku.put("BATH0073", 0.15);
+
+		String upperCase = itemNumber.toUpperCase();
+		if(sku.containsKey(upperCase)){
+			return sku.get(upperCase);
+		}
+		return 0.0;
 	}
 
 	/*
@@ -76,7 +113,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		Map<String, Integer> robbed = new HashMap<>();
+		int peter = peterPaul.get("Peter");
+		int paul = peterPaul.get("Paul");
+
+		if(peterPaul.get("Peter")> 0 && peterPaul.get("Paul")< 1000){
+			paul = paul + (peter/2);
+			if(peter%2==1){
+				peter = (peter/2)+1;
+			} else{
+				peter = peter/2;
+			}
+
+			robbed.put("Peter", peter);
+			robbed.put("Paul", paul);
+			return robbed;
+		}
+		return peterPaul;
 	}
 
 	/*
