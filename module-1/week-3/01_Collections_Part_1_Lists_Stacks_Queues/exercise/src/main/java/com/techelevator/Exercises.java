@@ -161,18 +161,28 @@ public class Exercises {
      interleaveLists( [1, 2, 5, 8, 10], [4, 5, 6] )  ->  [1, 4, 2, 5, 5, 6, 8, 10]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		int largest = 0;
-		//find largest list
+		int smallest = 0;
+		//find smallest list
 		if(listOne.size() > listTwo.size()){
-			largest = listOne.size();
+			smallest = listTwo.size();
 		} else {
-			largest = listTwo.size();
+			smallest = listOne.size();
 		}
 		List<Integer> newList = new ArrayList<Integer>();
+		int i = 0;
 
-		for (int i = 0; i <largest; i++) {
+		for ( i = 0; i <smallest; i++) {
 			newList.add(listOne.get(i));
 			newList.add(listTwo.get(i));
+		}
+		if(listOne.size() > listTwo.size()){
+			for(i = i ; i < listOne.size(); i++){
+				newList.add(listOne.get(i));
+			}
+		} else {
+			for (i = i; i < listTwo.size() ; i++) {
+				newList.add(listTwo.get(i));
+			}
 		}
 
 		return newList;
