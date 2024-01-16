@@ -142,7 +142,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		Map<String, Integer> newFriends = new HashMap<>();
+		int peter = peterPaul.get("Peter");
+		int paul = peterPaul.get("Paul");
+		int partnership;
+		newFriends.put("Peter", peter);
+		newFriends.put("Paul", paul);
+
+		if(peter>=5000 && paul>=10000){
+			partnership = (peter/4) + (paul/4);
+			newFriends.put("Peter", (peter-(peter/4)));
+			newFriends.put("Paul", (paul-(paul/4)));
+			newFriends.put("PeterPaulPartnership", partnership);
+		}
+		return newFriends;
 	}
 
 	/*
