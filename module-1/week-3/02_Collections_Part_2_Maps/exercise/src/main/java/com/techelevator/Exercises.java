@@ -170,7 +170,18 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+
+		Map<String, String> firstLast = new HashMap<String, String>();
+
+		for (int i = 0; i < words.length; i++) {
+			String word = words[i];
+			int length = word.length();
+			String first = word.substring(0,1);
+			String last = word.substring(length-1);
+			firstLast.put(first,last);
+		}
+
+		return firstLast;
 	}
 
 	/*
@@ -186,7 +197,18 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+
+		Map<String, Integer> strRepeated = new HashMap<String, Integer>();
+
+		for(String word : words){
+			Integer integer = strRepeated.get(word);
+			if(integer == null){
+				strRepeated.put(word,1);
+			} else{
+				strRepeated.put(word, integer + 1);
+			}
+		}
+		return strRepeated;
 	}
 
 	/*
