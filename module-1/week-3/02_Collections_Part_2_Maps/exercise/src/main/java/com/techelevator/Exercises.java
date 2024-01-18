@@ -248,10 +248,7 @@ public class Exercises {
 	public Map<String, Boolean> wordMultiple(String[] words) {
 		Map<String, Boolean> trueFalse = new HashMap<>();
 
-		for(String letter : words){
-			int quant = 0;
-			if()
-		}
+
 		return null;
 	}
 
