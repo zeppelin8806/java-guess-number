@@ -223,7 +223,17 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> numCount = new HashMap<>();
+
+		for(int value : ints){
+			Integer integer = numCount.get(value);
+			if(integer == null){
+				numCount.put(value,1);
+			} else{
+				numCount.put(value, integer + 1);
+			}
+		}
+		return numCount;
 	}
 
 	/*
@@ -236,6 +246,12 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
+		Map<String, Boolean> trueFalse = new HashMap<>();
+
+		for(String letter : words){
+			int quant = 0;
+			if()
+		}
 		return null;
 	}
 
