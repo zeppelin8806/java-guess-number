@@ -281,7 +281,23 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+
+		Map<String, Integer> combined = new HashMap<>();
+		for(Map.Entry<String, Integer> main : mainWarehouse.entrySet()){
+			combined.put(main.getKey(), main.getValue());
+		}
+		for(Map.Entry<String, Integer> secondMain: remoteWarehouse.entrySet()){
+			int value = secondMain.getValue();
+			String combinedKey = secondMain.getKey();
+			if(combined.containsKey(combinedKey)){
+				combined.put(combinedKey, combined.get(combinedKey) + value);
+			} else{
+				combined.put(combinedKey, value);
+			}
+		}
+
+
+		return combined;
 	}
 
 	/*
