@@ -247,9 +247,26 @@ public class Exercises {
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
 		Map<String, Boolean> trueFalse = new HashMap<>();
+		Map<String, Integer> testMap = new HashMap<>();
 
+		for(String letter: words){
+			Integer integer = testMap.get(letter);
+			if(integer == null){
+				testMap.put(letter,1);
+			} else{
+				testMap.put(letter, integer + 1);
+			}
+		}
+		for(Map.Entry<String, Integer> number: testMap.entrySet()){
+			String name = number.getKey();
+			if(number.getValue() > 1){
+				trueFalse.put(name,true);
+			} else{
+				trueFalse.put(name, false);
+			}
+		}
 
-		return null;
+		return trueFalse;
 	}
 
 	/*
