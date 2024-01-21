@@ -14,7 +14,7 @@ public class App {
     private final Scanner keyboard = new Scanner(System.in);
     private List<String> species = new ArrayList<>();
     private List<String> owner = new ArrayList<>();
-    private List<Integer> petName = new ArrayList<>();
+    private List<Integer> age = new ArrayList<>();
     private List<Double> weight = new ArrayList<>();
 
     public static void main(String[] args){
@@ -31,31 +31,95 @@ public class App {
             String[] tempset = dataset[i].split(FIELD_DELIMITER);
             species.add(tempset[SPECIES_FIELD]);
             owner.add(tempset[OWNER_FIELD]);
-            petName.add(Integer.parseInt(tempset[PET_NAME_FIELD]));
+            age.add(Integer.parseInt(tempset[PET_NAME_FIELD]));
             weight.add(Double.parseDouble(tempset[WEIGHT_FIELD]));
         }
     }
 
     private void run(){
 
+        while (true){
+            printMainMenu();
+            int mainMenuSelection = promptForMenuSelection("Please choose and option: ");
+            if (mainMenuSelection == 1){
+                while (true){
+                    printDataAndSubsetsMenu();
+                    int dataAndSubsetsMenuSelection = promptForMenuSelection("Please choose an option: ");
+                    if(dataAndSubsetsMenuSelection ==1){
+                        displayDataset(Dataset.load());
+                    } else if( dataAndSubsetsMenuSelection == 2){
+                        displaySpeciesList(species);
+                    } else if (dataAndSubsetsMenuSelection ==3) {
+                        displayOwnerList(owner);
+                    } else if (dataAndSubsetsMenuSelection == 4) {
+                        displayAgeList(age);
+                    } else if (dataAndSubsetsMenuSelection == 5) {
+                        displayWeightList(weight);
+                    } else if (dataAndSubsetsMenuSelection == 0) {
+                        break;
+                    }
+                }
+            } else if (mainMenuSelection ==2) {
+                while (true){
+                    printPetDetailsMenu();
+                    int petDetailMenuSelection = promptForMenuSelection("Please choose an option: ");
+                    if (petDetailMenuSelection ==1){
+                        String filterSpecies = promptForString("Enter Species of Pet: ");
+
+
+
+                        displaySpeciesList(species);
+                    } else if (petDetailMenuSelection == 2) {
+                        String filterOwner = promptForString("Enter name of Owner: ");
+
+
+
+                        displayOwnerList(owner);
+                    } else if (petDetailMenuSelection == 3) {
+                        int filterEarlyAge = promptForPublishedYear("Enter \"from\" age (in full years): ");
+                        int filterLaterAge = promptForPublishedYear("Enter \"to\" age (in full years): ");
+
+
+
+                        displayAgeList(age);
+                    } else if (petDetailMenuSelection == 4) {
+                        int filterEarlyAge = promptForPublishedYear("Enter \"from\" age (in full years): ");
+                        int filterLaterAge = promptForMenuSelection("Enter \"to\" age (in full years): ");
+
+
+
+                        displayAgeList(age);
+                    }
+
+                }
+            }
+        }
+
     }
 
     private void printMainMenu() {
         System.out.println("1: Display data and subsets");
-        System.out.println("2: Search books");
+        System.out.println("2: Search Details of Pet");
         System.out.println("0: Exit");
         System.out.println();
     }
-
-    private void printSearchBooksMenu() {
-        System.out.println("1: Search by title");
-        System.out.println("2: Search by author");
-        System.out.println("3: Search by published year");
-        System.out.println("4: Search by published year range");
-        System.out.println("5: Find most recent books");
-        System.out.println("6: Search by price");
-        System.out.println("7: Search by price range");
-        System.out.println("8: Find least expensive books");
+    private void printDataAndSubsetsMenu() {
+        System.out.println("1: Display dataset");
+        System.out.println("2: Display Species of Pet");
+        System.out.println("3: Display Owner");
+        System.out.println("4: Display Age of Pet");
+        System.out.println("5: Display weight");
+        System.out.println("0: Return to main menu");
+        System.out.println();
+    }
+    private void printPetDetailsMenu() {
+        System.out.println("1: Search by Species of Pet");
+        System.out.println("2: Search by Owner");
+        System.out.println("3: Search by Age of Pet");
+        System.out.println("4: Search by Range of Age");
+        System.out.println("5: Find youngest PEt");
+        System.out.println("6: Find oldest Pet");
+        System.out.println("7: Search by weight range");
         System.out.println("0: Return to main menu");
         System.out.println();
     }
@@ -70,41 +134,41 @@ public class App {
         promptForReturn();
     }
 
-    private void displayTitlesList(List<String> titles) {
-        System.out.println("Titles");
+    private void displaySpeciesList(List<String> species) {
+        System.out.println("Species");
         System.out.println("-------");
-        for (int i = 0; i < titles.size(); i++) {
-            System.out.println(i + ": " + titles.get(i));
+        for (int i = 0; i < species.size(); i++) {
+            System.out.println(i + ": " + species.get(i));
         }
         System.out.println();
         promptForReturn();
     }
 
-    private void displayAuthorsList(List<String> authors) {
-        System.out.println("Authors");
+    private void displayOwnerList(List<String> owner) {
+        System.out.println("Owners");
         System.out.println("-------");
-        for (int i = 0; i < authors.size(); i++) {
-            System.out.println(i + ": " + authors.get(i));
+        for (int i = 0; i < owner.size(); i++) {
+            System.out.println(i + ": " + owner.get(i));
         }
         System.out.println();
         promptForReturn();
     }
 
-    private void displayPublishedYearsList(List<Integer> publishedYears) {
-        System.out.println("Published Years");
+    private void displayAgeList(List<Integer> age) {
+        System.out.println("Age");
         System.out.println("---------------");
-        for (int i = 0; i < publishedYears.size(); i++) {
-            System.out.println(i + ": " + publishedYears.get(i));
+        for (int i = 0; i < age.size(); i++) {
+            System.out.println(i + ": " + age.get(i));
         }
         System.out.println();
         promptForReturn();
     }
 
-    private void displayPricesList(List<BigDecimal> prices) {
-        System.out.println("Prices");
+    private void displayWeightList(List<Double> weight) {
+        System.out.println("Weight");
         System.out.println("------");
-        for (int i = 0; i < prices.size(); i++) {
-            System.out.println(i + ": " + prices.get(i));
+        for (int i = 0; i < weight.size(); i++) {
+            System.out.println(i + ": " + weight.get(i));
         }
         System.out.println();
         promptForReturn();
