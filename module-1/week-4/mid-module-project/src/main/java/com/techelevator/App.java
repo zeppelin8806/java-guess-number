@@ -143,7 +143,7 @@ public class App {
                          Replace `displayPricesList(prices)` with calls to the
                          `filterByPriceRange()` and `displaySearchResults()` methods.
                          */
-                        displayPricesList(prices);
+                        displaySearchResults(filterByPriceRange(filterFromPrice, filterToPrice));
                     } else if (searchBooksMenuSelection == 8) {
                         // Find the least expensive books
                         /*
@@ -151,7 +151,7 @@ public class App {
                          Replace `displayPricesList(prices)` with calls to the
                          `findLeastExpensiveBooks()` and `displaySearchResults()` methods.
                          */
-                        displayPricesList(prices);
+                        displaySearchResults(findLeastExpensiveBooks());
                     } else if (searchBooksMenuSelection == 0) {
                         break;
                     }
@@ -276,7 +276,14 @@ public class App {
      See README for additional details.
      */
     private List<Integer> filterByPriceRange(double filterFromPrice, double filterToPrice) {
-        return null;
+        List<Integer> priceRange = new ArrayList<>();
+        for (int i = 0; i < prices.size(); i++) {
+            if(prices.get(i).doubleValue() >= filterFromPrice && prices.get(i).doubleValue() <= filterToPrice){
+                priceRange.add(i);
+            }
+        }
+
+        return priceRange;
     }
 
     /*
@@ -284,6 +291,21 @@ public class App {
      Add the `private List<Integer> findLeastExpensiveBooks()` method.
      See README for additional details.
      */
+    private List<Integer> findLeastExpensiveBooks(){
+        List<Integer> cheap = new ArrayList<>();
+        BigDecimal cost = prices.get(0);
+        for (int i = 0; i < prices.size(); i++) {
+            if(prices.get(i).compareTo(cost) < 0){
+                cost = prices.get(i);
+            }
+        }
+        for (int i = 0; i < prices.size(); i++) {
+            if(prices.get(i).compareTo(cost) == 0){
+                cheap.add(prices.indexOf(cost));
+            }
+        }
+        return cheap;
+    }
 
 
     // UI methods
