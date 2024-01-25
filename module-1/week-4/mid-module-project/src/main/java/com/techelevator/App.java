@@ -197,7 +197,9 @@ public class App {
     private List<Integer> filterByAuthor(String filterAuthor) {
         List<Integer> authorResult = new ArrayList<>();
         for(int i = 0 ; i < authors.size(); i++){
-            if(authors.get(i).equalsIgnoreCase(filterAuthor)){
+            String name = filterAuthor.toLowerCase();
+            String compare = authors.get(i).toLowerCase();
+            if(compare.contains(name)){
                 authorResult.add(i);
             }
         }
