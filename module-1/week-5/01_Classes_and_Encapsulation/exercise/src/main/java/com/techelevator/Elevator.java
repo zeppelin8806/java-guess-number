@@ -1,7 +1,7 @@
 package com.techelevator;
 
 public class Elevator {
-    private int currentFloor;
+    private int currentFloor = 1;
     private int numberOfFloors;
     private boolean doorOpen;
 
@@ -17,10 +17,7 @@ public class Elevator {
         return doorOpen;
     }
     public Elevator(int numberOfLevels){
-        getCurrentFloor();
-        currentFloor = 1;
-        getNumberOfFloors();
-        numberOfFloors = numberOfLevels;
+        this.numberOfFloors = numberOfLevels;
     }
     public void openDoor(){
         doorOpen = true;

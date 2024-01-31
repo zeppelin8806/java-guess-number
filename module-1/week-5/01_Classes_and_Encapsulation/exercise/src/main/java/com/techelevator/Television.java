@@ -14,9 +14,7 @@ public class Television {
     }
 
     public int getCurrentVolume() {
-        if(isOn){
-            return currentVolume;
-        } else return 0;
+        return currentVolume;
     }
     public void turnOff(){
         isOn = false;
