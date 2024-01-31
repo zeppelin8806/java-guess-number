@@ -4,7 +4,7 @@ public class FruitTree {
 
     String typeOfFruit;
     int piecesOfFruitLeft;
-    int startingPiecesOfFruit;
+
 
 
     public int getPiecesOfFruitLeft() {
@@ -14,14 +14,15 @@ public class FruitTree {
         return typeOfFruit;
     }
 
+
     public FruitTree(String typeOfFruit, int startingPiecesOfFruit){
         this.typeOfFruit = typeOfFruit;
-        this.startingPiecesOfFruit = startingPiecesOfFruit;
+        this.piecesOfFruitLeft = startingPiecesOfFruit;
     }
 
     public boolean pickFruit(int numberOfPiecesToRemove){
-        if(startingPiecesOfFruit>numberOfPiecesToRemove){
-            piecesOfFruitLeft = startingPiecesOfFruit-numberOfPiecesToRemove;
+        if(piecesOfFruitLeft>=numberOfPiecesToRemove){
+            piecesOfFruitLeft = piecesOfFruitLeft-numberOfPiecesToRemove;
             return true;
         }
         return false;

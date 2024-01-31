@@ -19,10 +19,6 @@ public class HomeworkAssignment {
         return earnedMarks;
     }
 
-    public String getLetterGrade() {
-        return letterGrade;
-    }
-
     public String getSubmitterName() {
         return submitterName;
     }
@@ -31,20 +27,19 @@ public class HomeworkAssignment {
         this.submitterName = submitterName;
 
     }
-    public String letterGrade(int possibleMarks, int earnedMarks){
-        String letterearned = null;
-        double percent = new Double (earnedMarks/possibleMarks);
+    public String getLetterGrade(){
+        double percent = (double)earnedMarks/possibleMarks;
         if(percent>=.9){
-            letterearned = "A";
+            return"A";
         } else if(percent >= .8){
-            letterearned = "B";
+            return "B";
         } else if(percent >=.7){
-            letterearned = "C";
+            return "C";
         } else if (percent>= .6) {
-            letterearned = "D";
+            return "D";
         } else{
-            letterearned = "F";
+            return "F";
         }
-        return letterearned;
+
     }
 }
