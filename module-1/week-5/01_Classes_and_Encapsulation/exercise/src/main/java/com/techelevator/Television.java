@@ -2,8 +2,8 @@ package com.techelevator;
 
 public class Television {
     private boolean isOn;
-    private int currentChannel;
-    private int currentVolume;
+    private int currentChannel = 3;
+    private int currentVolume = 2;
 
     public boolean isOn() {
         return isOn;

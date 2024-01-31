@@ -2,31 +2,31 @@ package com.techelevator;
 
 public class FruitTree {
 
-    private String typeOfFruit;
-    private int startingPiecesOfFruit;
-    private int piecesOfFruitLeft;
+    String typeOfFruit;
+    int piecesOfFruitLeft;
+    int startingPiecesOfFruit;
 
 
     public int getPiecesOfFruitLeft() {
-        return startingPiecesOfFruit;
+        return piecesOfFruitLeft;
     }
-
     public String getTypeOfFruit() {
         return typeOfFruit;
-    }
-
-    public boolean pickFruit(int numberOfPiecesToRemove){
-        int x = startingPiecesOfFruit-numberOfPiecesToRemove;
-        piecesOfFruitLeft = x;
-        if(piecesOfFruitLeft>0){
-            return true;
-        }
-        return false;
     }
 
     public FruitTree(String typeOfFruit, int startingPiecesOfFruit){
         this.typeOfFruit = typeOfFruit;
         this.startingPiecesOfFruit = startingPiecesOfFruit;
     }
+
+    public boolean pickFruit(int numberOfPiecesToRemove){
+        if(startingPiecesOfFruit>numberOfPiecesToRemove){
+            piecesOfFruitLeft = startingPiecesOfFruit-numberOfPiecesToRemove;
+            return true;
+        }
+        return false;
+    }
+
+
 
 }

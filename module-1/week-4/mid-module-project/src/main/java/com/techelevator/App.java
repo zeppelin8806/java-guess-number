@@ -303,7 +303,7 @@ public class App {
         }
         for (int i = 0; i < prices.size(); i++) {
             if(prices.get(i).compareTo(cost) == 0){
-                cheap.add(prices.indexOf(cost));
+                cheap.add(i);
             }
         }
         return cheap;
