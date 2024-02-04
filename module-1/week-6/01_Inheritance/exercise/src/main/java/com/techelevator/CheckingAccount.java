@@ -1,39 +1,25 @@
 package com.techelevator;
 
-public class CheckingAccount extends BankAccount{
+public class CheckingAccount extends BankAccount {
+    public static final int MINIMUM_BALANCE = -100;
+    public static final int OVERDRAFT_FEE = 10;
 
-    public CheckingAccount(String accountHolderName, String accountNumber){
+    public CheckingAccount(String accountHolderName, String accountNumber) {
         super(accountHolderName, accountNumber);
     }
 
-    public CheckingAccount(String accountHolderName, String accountNumber, int balance){
+    public CheckingAccount(String accountHolderName, String accountNumber, int balance) {
         super(accountHolderName, accountNumber, balance);
     }
 
-    public int withdraw(int amountToWithdraw){
-        super.withdraw(amountToWithdraw);
-        int tempBalance;
-        int negBalance;
-        if(getBalance() >0){
-            tempBalance = getBalance()-amountToWithdraw;
-            if(tempBalance<0){
-                negBalance = tempBalance - 10;
-                return negBalance;
+    public int withdraw(int amountToWithdraw) {
+        if (amountToWithdraw > 0 && (getBalance() - amountToWithdraw > MINIMUM_BALANCE)) {
+            super.withdraw(amountToWithdraw);
+            if (getBalance() < 0) {
+                super.withdraw(OVERDRAFT_FEE);
             }
-            return tempBalance;
-        }
-        if(getBalance() > -100 && getBalance() >0){
-            tempBalance = getBalance()-amountToWithdraw;
-            if(tempBalance>-100){
-                tempBalance = tempBalance -10;
-                return tempBalance;
-            } else if (tempBalance < 100) {
-                return getBalance();
-            }
-            return tempBalance;
         }
         return getBalance();
     }
-
-
 }
+
