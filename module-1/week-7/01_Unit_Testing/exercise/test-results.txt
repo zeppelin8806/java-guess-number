@@ -1,9 +1,29 @@
 Document the bugs you found, in this format:
 
-1. [Class where bug was found]
+EX. [Class where bug was found]
 [Description of bug]
 [What you did to fix it and get your tests to pass]
-
 ---------------------------------------------------
+1. class WordCount
+The bug was not adding multiple strings to the map. Due to the wrong method being called.
+On line 26, I changed containsValue with containsKey. This makes the search through the Map output look at the right thing.
+---------------------------------------------------
+2. class Less20
+The bug was producing a logic error from how the booleans were being called out.
+The "this." function was being added to the int n, which wasn't necessary and causing the boolean to fail.
+---------------------------------------------------
+3. class Lucky13
+The bug was producing a logic error from how the index of the arrays were called out.
+Within the second if statement, it compared integers at the same if they were both 1 & 3 due to an "and", instead of an "or" statement.
+---------------------------------------------------
+4. class FrontTimes
+Results from the method were one string short from expected.
+The for statements had a "-1" after the integer n, which caused the for loop statement to stop one loop short of expected.
+---------------------------------------------------
+Class StringBits works correctly
+Class SameFistLast works correctly
+Class NonStart works correctly
+Class MaxEnd3 works correctly (comeback and double check)
+Class DateFashion works correctly
 
 
