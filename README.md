@@ -6,5 +6,5 @@ I wrote this in the first couple of weeks of the bootcamp.
 ## Glitch Website
 
 I recently have the code hosted on glitch so it can be viewed in a web browser.
-The website is located [here}(https://good-orange-daemonosaurus.glitch.me/).
+The website is located [here](https://good-orange-daemonosaurus.glitch.me/).
 
